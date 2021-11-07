@@ -10,9 +10,9 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">🖼 GIF Portal</p>
+          <p className="header">Camila Rondinini's Project</p>
           <p className="sub-text">
-            View your GIF collection in the metaverse ✨
+            Starter template for building a Solana/Rust project.
           </p>
         </div>
         <div className="footer-container">
@@ -22,7 +22,7 @@ const App = () => {
             href={TWITTER_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{`Project provided by @${TWITTER_HANDLE}`}</a>
         </div>
       </div>
     </div>
