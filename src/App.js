@@ -1,5 +1,6 @@
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
+import ConnectWallet from './ConnectWallet';
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
@@ -14,6 +15,10 @@ const App = () => {
           <p className="sub-text">
             Starter template for building a Solana/Rust project.
           </p>
+          <br />
+        </div>
+        <div className="content-container">
+          <ConnectWallet />
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
