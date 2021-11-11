@@ -58,6 +58,11 @@
   animation: gradient-animation 4s ease infinite;
 }
 
+.connect-wallet-button:disabled {
+  cursor: default;
+  background:rgba(0, 0, 0, 0.25);
+}
+
 .submit-gif-button {
   background: -webkit-linear-gradient(left, #4e44ce, #35aee2);
   background-size: 200% 200%;
@@ -127,4 +132,9 @@
 
 .connected-container button {
   height: 50px;
+}
+
+.wallet-address-container {
+  margin-top: 10px;
+  min-height: 20px;
 }
