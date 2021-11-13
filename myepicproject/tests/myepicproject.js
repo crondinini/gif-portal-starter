@@ -1,21 +1,36 @@
 const anchor = require('@project-serum/anchor');
 
+// Need the system program, will talk about this soon.
+const { SystemProgram } = anchor.web3;
+
 const main = async() => {
   console.log("🚀 Starting test...")
 
-  // This gets this data from solana config get.
-  // If the config is set to local host, it tells Anchor to
-  // to run the code locally.
-  anchor.setProvider(anchor.Provider.env());
+  // Create and set the provider. We set it before but we needed to update it, so that it can communicate with our frontend!
+  const provider = anchor.Provider.env();
+  anchor.setProvider(provider);
 
-  // Automatically compiles our code in lib.rs and gets it deployed locally on a local validator
   const program = anchor.workspace.Myepicproject;
 
-  // Actually call our function we made by doing program.rpc.startStuffOff()
-  // and await it, which will wait for our local validator to "mine" the instruction.
-  const tx = await program.rpc.startStuffOff();
+  // Create an account keypair for our program to use.
+  // We need to create some credentials for the BaseAccount we're creating.
+  const baseAccount = anchor.web3.Keypair.generate();
+
+  // Call start_stuff_off, pass it the params it needs!
+  let tx = await program.rpc.startStuffOff({
+    accounts: {
+      baseAccount: baseAccount.publicKey,
+      user: provider.wallet.publicKey,
+      systemProgram: SystemProgram.programId,
+    },
+    signers: [baseAccount],
+  });
 
   console.log("📝 Your transaction signature", tx);
+
+  // Fetch data from the account.
+  let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+  console.log('👀 GIF Count', account.totalGifs.toString())
 }
 
 const runMain = async () => {
