@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 import ConnectWallet from './ConnectWallet';
@@ -11,9 +12,9 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">Camila Rondinini's Project</p>
+          <p className="header">Camila Rondinini's GIF Portal</p>
           <p className="sub-text">
-            Starter template for building a Solana/Rust project.
+            View your GIF collection in the metaverse ✨
           </p>
           <br />
         </div>
