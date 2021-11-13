@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 import ConnectWallet from './ConnectWallet';
